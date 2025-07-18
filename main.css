@@ -1,0 +1,365 @@
+/* === 基本設定: モダンでおしゃれなスタイル === */
+:root {
+    --primary-color: #0d47a1; /* 深い知的な青 */
+    --secondary-color: #00bcd4; /* 鮮やかなターコイズ */
+    --accent-color: #ff9800; /* 温かみのあるオレンジ */
+    --text-color: #212121; /* 可読性の高いダークグレー */
+    --text-light-color: #616161;
+    --bg-color: #f5f5f5; /* 明るい背景色 */
+    --white-color: #ffffff;
+    --font-family: 'Noto Sans JP', sans-serif;
+    --border-radius: 12px;
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.07);
+    --transition-speed: 0.3s;
+}
+
+/* スムーズスクロール */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    position: relative;
+}
+
+/* セクションタイトルの下線アニメーション */
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-light-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.content-section {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: var(--white-color);
+}
+
+
+/* === ヘッダー (ヒーローセクション) === */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1e88e5 100%);
+    color: var(--white-color);
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 背景の装飾 */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+/* 校章のスタイル */
+.school-emblem {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 0; /* 校章は角丸にしない */
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: var(--white-color);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    max-width: 650px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* === 学習内容セクション === */
+#curriculum ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+#curriculum li {
+    background-color: var(--white-color);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border-top: 4px solid var(--secondary-color);
+}
+
+#curriculum li:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+}
+
+#curriculum li strong {
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+
+/* === ギャラリーセクション === */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.gallery-item-wrapper {
+     text-align: center;
+}
+
+.gallery-item {
+    text-align: center;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    position: relative;
+    transition: transform var(--transition-speed) ease;
+}
+
+.photo-description {
+    padding: 15px 5px 0 5px;
+    font-size: 0.95rem;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    transition: filter var(--transition-speed) ease;
+}
+
+.gallery-item:hover img {
+    filter: brightness(0.9);
+}
+
+.gallery-item p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: var(--white-color);
+    margin: 0;
+    padding: 15px;
+    font-weight: bold;
+    box-sizing: border-box;
+    transition: background var(--transition-speed) ease;
+}
+
+.gallery-item:hover p {
+    background: rgba(13, 71, 161, 0.8); /* primary-colorの透明度調整版 */
+}
+
+/* === 進路セクションの追加スタイル === */
+.career-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    text-align: left;
+    margin-top: 40px;
+}
+
+.career-path h3 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+.career-path ul {
+    list-style: none;
+    padding: 0;
+}
+
+.career-path li {
+    background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2300bcd4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>') no-repeat left center;
+    background-size: 16px;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    color: var(--text-light-color);
+}
+
+.career-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--white-color);
+    background: var(--secondary-color);
+    border-radius: 50px;
+    transition: all var(--transition-speed) ease;
+    box-shadow: 0 2px 8px rgba(0, 188, 212, 0.3);
+}
+
+.career-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 188, 212, 0.4);
+    background: #00acc1;
+}
+
+.career-summary {
+    text-align: center;
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+
+/* === フッター === */
+footer {
+    background-color: #212121;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+footer p {
+    color: #e0e0e0;
+}
+
+.button {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--accent-color), #ffb74d);
+    color: var(--white-color);
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all var(--transition-speed) ease;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+    border: none;
+    margin: 10px;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 152, 0, 0.6);
+}
+
+.button-secondary {
+    background: #757575;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.button-secondary:hover {
+    background: #616161;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.copyright {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #757575;
+}
+
+
+/* === レスポンシブデザイン === */
+@media (max-width: 992px) {
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .career-options {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        width: 90%;
+    }
+    .hero {
+        padding: 80px 15px;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .hero p {
+        font-size: 1.1rem;
+    }
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+    .button {
+        padding: 12px 25px;
+        width: 90%;
+        box-sizing: border-box;
+    }
+}
